@@ -11,8 +11,5 @@ import scrapy
 class ScrapingItem(scrapy.Item):
    # define the fields for your item here like:
     # name = scrapy.Field()
-    x=0
-    for x in range(2, 6):
-        titulos=scrapy.Field()
-        titulos2=scrapy.Field()
+    links=scrapy.Field()
     pass

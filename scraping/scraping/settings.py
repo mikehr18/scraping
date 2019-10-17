@@ -21,6 +21,13 @@ NEWSPIDER_MODULE = 'scraping.spiders'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
+
+DB_SETTINGS = {
+    'db': "scrapy",
+    'user': 'postgres',
+    'passwd': 'root',
+    'host': '127.0.0.1',
+}
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
@@ -64,9 +71,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'scraping.pipelines.ScrapingPipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'scraping.pipelines.ScrapingPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
