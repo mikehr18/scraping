@@ -20,5 +20,5 @@ CREATE TABLE link (
    id SERIAL PRIMARY KEY,
    url TEXT ,
    revisada boolean DEFAULT false,
-        UNIQUE(email)
+        UNIQUE(url)
 );

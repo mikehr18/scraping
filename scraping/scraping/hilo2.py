@@ -17,7 +17,7 @@ try:
   
    cursor = connection.cursor()
 
-   postgreSQL_select_Query = "select url from link where revisada=false order by id limit 1;"
+   postgreSQL_select_Query = "select url from link where revisada=false order by id desc limit 1;"
 
    for contador in range(15):
        cursor.execute(postgreSQL_select_Query)
