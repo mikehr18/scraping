@@ -1,2 +1,24 @@
 links
 http://likcos.blogspot.com/
+
+
+
+
+CREATE TABLE public.link
+(
+    id integer NOT NULL DEFAULT nextval('link_id_seq'::regclass),
+    url text COLLATE pg_catalog."default",
+    revisada boolean DEFAULT false,
+    CONSTRAINT link_pkey PRIMARY KEY (id),
+    CONSTRAINT link_url_key UNIQUE (url)
+
+)
+
+
+
+CREATE TABLE link (
+   id SERIAL PRIMARY KEY,
+   url TEXT ,
+   revisada boolean DEFAULT false,
+        UNIQUE(email)
+);

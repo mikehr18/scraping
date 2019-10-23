@@ -36,9 +36,15 @@ class ScrapingPipeline(object):
     def process_item(self, item, spider):
         try:   
             data = "'"+str(item['links'])+"'"
-            sql = "INSERT INTO link (url) VALUES ('');"
-            self.cursor.execute("INSERT INTO link (url) VALUES ({0});".format(data))
-            self.conn.commit()
+            hasta = "#"
+            print( data+"-----------------------------------------------")
+            if hasta in data:
+                self.cursor.execute("INSERT INTO link (url, revisada) VALUES ({0}, true);".format(data))
+                self.conn.commit()
+            else:
+                self.cursor.execute("INSERT INTO link (url, revisada) VALUES ({0}, false);".format(data))
+                self.conn.commit()
+            
         except (Exception, psycopg2.DatabaseError) as error :
            # print ("Error in transction Reverting all other operations of a transction ", error)
             self.conn.rollback()    
